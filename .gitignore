@@ -130,3 +130,6 @@ dmypy.json
 
 .DS_Store
 py/api-creds.py
+
+# dev data
+dat/dev/
