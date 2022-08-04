@@ -133,3 +133,7 @@ py/api-creds.py
 
 # dev data
 dat/dev/
+dat/tdm.pkl
+dat/tdm_stop.pkl
+dat/corpus.pkl
+dat/cv_stop.pkl
