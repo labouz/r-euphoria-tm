@@ -15,13 +15,21 @@ def detect_language(text):
 spam_patterns = ['[deleted]', 'Thank you for your submission', 'Paypal',
                  'Here is [Rue 21 Coupon Code]', 'JAX\_Jacksonville\_127',
                  'The word detective did not', 'On my way to trinoma/vertis north',
-                 'Shipping:', 'Albums']
+                 'Shipping:', 'Albums', 'Deliver Service',
+                 'One-Stop-Shop', 'Strong Deliver', 'Marketing', 'Operations',
+                 'Affordable', 'Customer', 'Service', 'Investment', 'Wholesalers',
+                 'Shareholders', 'Retailing', 'Retail', 'Markets',
+                 '!\~JWPLayer\*', 'Butterburger', 'Tastes Exceptional',
+                 'The Committed', 'SIDEX', 'Opinion Poll', 'GoogleDrive', 
+                 'Food Ingredients', 'fragrance', 'PayPal', 'Rue Porter',
+                 'Fragrances', 'Free shipping', 'PM me with any questions',
+                 'View Poll', 'Fangamer','The following description is not provided by this sub']
 
 def clean_spam(text):
     for pattern in spam_patterns:
-        if text in pattern:
+        if pattern in text:
             return 'spam'
-    return text
+    return 'not spam'
 
 # load libraries
 from string import punctuation
@@ -30,7 +38,7 @@ import unicodedata
 
 # using regex - clean and remove URLs
 def cleaning_URLs(text):
-    return re.sub('((www.[^s]+)|(https?://[^s]+))',' ',text)
+    return re.sub(r"\S*https?:\S*", "",text)
 
 def clean_round1(text):
     # convert all to string
