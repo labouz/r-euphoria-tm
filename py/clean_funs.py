@@ -82,18 +82,26 @@ def clean_round3(text):
 round3 = lambda x: clean_round3(x)
 
 # another round with lemmatization and stemming
-from nltk.stem import WordNetLemmatizer
-from nltk.stem.porter import PorterStemmer
+# from nltk.stem import WordNetLemmatizer
 
+# def clean_round3a(text):
+#     # stemming
+#     # stemmer = PorterStemmer()
+#     # text = ' '.join([stemmer.stem(word) for word in text.split()])
+#     # lemmatization
+#     lemmatizer = WordNetLemmatizer()
+#     text = ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
+
+#     return text
+
+import spacy
+nlp = spacy.load('en_core_web_sm')
 def clean_round3a(text):
-    # stemming
-    # stemmer = PorterStemmer()
-    # text = ' '.join([stemmer.stem(word) for word in text.split()])
-    # lemmatization
-    lemmatizer = WordNetLemmatizer()
-    text = ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
+    doc = nlp(text)
+    text2 = ' '.join(token.lemma_ for token in doc)
 
-    return text
+    return text2
+
 
 round3a = lambda x: clean_round3a(x)
 
@@ -108,7 +116,8 @@ do_not_mod_ls = ['good', 'spelling', 'telling', 'addiction','addicts', 'finally'
                  'messages', 'matters', 'looks', 'little', 'kills', 'issues', 'horror', 'hell', 'happens', 'happy', 'gonna', 'getting', 'especially',
                  'different', 'classic', 'businesses', 'attention', 'basically', 'apples', 'weeks', 'streets', 'needles', 'planning', 'full', 'fully',
                  'agreed', 'will', 'been', 'seeds', 'desserts', 'google', 'seen', 'addictions', 'foot', 'funny', 'comments', 'comment', 'poll',
-                 'channel', 'well', 'wall', 'hall', 'selling', 'blood']
+                 'channel', 'well', 'wall', 'hall', 'selling', 'blood', 'beep',
+                 'beeping']
 
 from operator import contains
 def modify(s):

@@ -132,6 +132,7 @@ dmypy.json
 py/api-creds.py
 
 # dev data
+dat/
 dat/dev/
 dat/tdm.pkl
 dat/tdm_stop.pkl
