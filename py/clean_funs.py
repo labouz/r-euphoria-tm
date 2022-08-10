@@ -9,6 +9,20 @@ def detect_language(text):
     except:
         return 'unknown'
 
+# function to detect if a pattern is in a string
+# for removal of spam comments
+
+spam_patterns = ['[deleted]', 'Thank you for your submission', 'Paypal',
+                 'Here is [Rue 21 Coupon Code]', 'JAX\_Jacksonville\_127',
+                 'The word detective did not', 'On my way to trinoma/vertis north',
+                 'Shipping:', 'Albums']
+
+def clean_spam(text):
+    for pattern in spam_patterns:
+        if text in pattern:
+            return 'spam'
+    return text
+
 # load libraries
 from string import punctuation
 import re
