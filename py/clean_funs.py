@@ -1,4 +1,9 @@
 
+# load spacy stopwords and lemmatizer
+import spacy
+nlp = spacy.load('en_core_web_sm')
+sw_spacy = nlp.Defaults.stop_words | {'rt', 'via', '…'}
+
 # remove non=english comments
 from langdetect import detect
 
@@ -94,8 +99,7 @@ round3 = lambda x: clean_round3(x)
 
 #     return text
 
-import spacy
-nlp = spacy.load('en_core_web_sm')
+
 def clean_round3a(text):
     doc = nlp(text)
     text2 = ' '.join(token.lemma_ for token in doc)
@@ -117,7 +121,7 @@ do_not_mod_ls = ['good', 'spelling', 'telling', 'addiction','addicts', 'finally'
                  'different', 'classic', 'businesses', 'attention', 'basically', 'apples', 'weeks', 'streets', 'needles', 'planning', 'full', 'fully',
                  'agreed', 'will', 'been', 'seeds', 'desserts', 'google', 'seen', 'addictions', 'foot', 'funny', 'comments', 'comment', 'poll',
                  'channel', 'well', 'wall', 'hall', 'selling', 'blood', 'beep',
-                 'beeping']
+                 'beeping', 'seem', 'seems', 'support', 'maddie', 'still', 'loss']
 
 from operator import contains
 def modify(s):
