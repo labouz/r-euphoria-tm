@@ -1,5 +1,5 @@
 ## Analyzing discourse on HBO's euphoria from Reddit commentary
-### CAA apprenticeship Jul 16 - Aug 12, 2022
+
 
 **Files:**  
 
